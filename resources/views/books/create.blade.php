@@ -13,7 +13,7 @@
 
 @section('content')
 
-    <div class="col-12">
+    <div class="col-12 col-sm-6">
 
         <form action="{{ route('books.store') }}" method="POST">
 
@@ -60,9 +60,8 @@
         </form>
     
     </div>
-
-    <div class="col-12">
-        
+    <div class="col-12 col-sm-6">
+       
         <form action="{{ route('books.import') }}" method="POST" enctype="multipart/form-data">
 
             @csrf
@@ -72,26 +71,20 @@
                     Importar arquivo CSV
                 </div>
                 <div class="card-body">
-
-                    <div class="row">
-
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input name="file" type="file" class="custom-file-input" id="file-input">
-                                <label class="custom-file-label" for="file-input" data-browse="Procurar">
-                                    Procurar
-                                </label>
-                            </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input name="file" type="file" class="custom-file-input" id="file-input">
+                            <label class="custom-file-label" for="file-input" data-browse="Procurar">
+                                Procurar
+                            </label>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-success">Importar</div>
+                    <button type="submit" class="btn btn-success">Importar</button>
                 </div>
 
-            </div>
+            </div> 
 
         </form>
 

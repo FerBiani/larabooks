@@ -43,6 +43,10 @@
         </div>
     </div>
 
+    <div class="col-12 text-right mt-4">
+        <a href="{{ route('books.create') }}" class="btn btn-success">Novo livro</a>
+    </div>
+
     <div class="col-12 mt-4">
         <table class="table table-hover">
             <thead class="thead-dark">
@@ -74,7 +78,6 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="{{ route('books.create') }}" class="btn btn-success">Novo livro</a>
     </div>
 
 @endsection
