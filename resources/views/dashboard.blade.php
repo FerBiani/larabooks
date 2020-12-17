@@ -76,69 +76,58 @@
         </div>
     </div>
     
-    <div class="col-12">
+    
+    <div class="col-12 col-sm-6">
+
         <div class="card">
-            <div class="card-header bg-primary text-white">
-                Relatórios
+            <div class="card-header bg-dark text-white">
+                Relatório de Clientes
             </div>
             <div class="card-body">
-
-                <div class="row">
-                    <div class="col-6">
-
-                        <div class="card">
-                            <div class="card-header bg-primary text-white">
-                                Clientes
-                            </div>
-                            <div class="card-body">
-                                <form action="{{ route('reports.customers') }}" method="GET">
-                                    <div class="row align-items-end">
-                                        <div class="col-12 col-sm-4">
-                                            <label>Data inicial</label>
-                                            <input type="text" name="date_start" class="form-control"></input>
-                                        </div>
-                                        <div class="col-12 col-sm-4">
-                                            <label>Data final</label>
-                                            <input type="text" name="date_end" class="form-control"></input>
-                                        </div>
-                                        <div class="col-12 col-sm-4">
-                                            <button type="submit" class="btn btn-success">Gerar relatório</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                <form action="{{ route('reports.customers') }}" method="GET">
+                    <div class="row align-items-end">
+                        <div class="col-12 col-sm-4">
+                            <label>Data inicial</label>
+                            <input type="text" name="date_start" class="form-control"></input>
                         </div>
-
-                    </div>
-                    <div class="col-6">
-
-                        <div class="card">
-                            <div class="card-header bg-primary text-white">
-                                Empréstimos
-                            </div>
-                            <div class="card-body">
-                                <form action="{{ route('reports.lendings') }}" method="GET">
-                                    <div class="row align-items-end">
-                                        <div class="col-12 col-sm-4">
-                                            <label>Data inicial</label>
-                                            <input type="text" name="date_start" class="form-control"></input>
-                                        </div>
-                                        <div class="col-12 col-sm-4">
-                                            <label>Data final</label>
-                                            <input type="text" name="date_end" class="form-control"></input>
-                                        </div>
-                                        <div class="col-12 col-sm-4">
-                                            <button type="submit" class="btn btn-success">Gerar relatório</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                        <div class="col-12 col-sm-4 mt-3 mt-sm-0">
+                            <label>Data final</label>
+                            <input type="text" name="date_end" class="form-control"></input>
                         </div>
-
+                        <div class="col-12 col-sm-4 mt-3 mt-sm-0">
+                            <button type="submit" class="btn btn-success">Gerar relatório</button>
+                        </div>
                     </div>
-                </div>
-
+                </form>
             </div>
         </div>
+
+    </div>
+
+    <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                Relatório de Empréstimos
+            </div>
+            <div class="card-body">
+                <form action="{{ route('reports.lendings') }}" method="GET">
+                    <div class="row align-items-end">
+                        <div class="col-12 col-sm-4">
+                            <label>Data inicial</label>
+                            <input type="text" name="date_start" class="form-control"></input>
+                        </div>
+                        <div class="col-12 col-sm-4 mt-3 mt-sm-0">
+                            <label>Data final</label>
+                            <input type="text" name="date_end" class="form-control"></input>
+                        </div>
+                        <div class="col-12 col-sm-4 mt-3 mt-sm-0">
+                            <button type="submit" class="btn btn-success">Gerar relatório</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
 @endsection
