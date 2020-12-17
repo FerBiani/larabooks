@@ -8,7 +8,7 @@
 <li class="breadcrumb-item active">
     <a href="{{ route('books.index') }}">Livros</a>
 </li>
-<li class="breadcrumb-item active">Novo livro</li>
+<li class="breadcrumb-item active">Novo Livro</li>
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@
         <form action="{{ route('books.store') }}" method="POST">
 
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-dark text-white">
                     Cadastrar Novo Livro
                 </div>
                 <div class="card-body">
@@ -30,14 +30,14 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Nome</label>
-                                <input name="name" type="text" class="form-control"></input>
+                                <input name="name" type="text" class="form-control">
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Autor</label>
-                                <input name="author" type="text" class="form-control"></input>
+                                <input name="author" type="text" class="form-control">
                             </div>
                         </div>
 
@@ -67,7 +67,7 @@
             @csrf
 
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-dark text-white">
                     Importar arquivo CSV
                 </div>
                 <div class="card-body">

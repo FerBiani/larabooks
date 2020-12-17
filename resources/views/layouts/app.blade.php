@@ -12,7 +12,7 @@
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">LaraBooks</a>
+            <a class="navbar-brand" href="{{ route('dashboard.index') }}">LaraBooks</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             
             <ul class="navbar-nav ml-auto">
@@ -41,25 +41,39 @@
                                 Dashboard
                             </a>
 
-                            <a class="nav-link" href="{{ route('books.index') }}">
+                            <a
+                                class="nav-link {{ Route::is('books.*') ? 'active' : '' }}"
+                                href="{{ route('books.index') }}"
+                            >
                                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                                 Livros
                             </a>
 
-                            <a class="nav-link" href="{{ route('customers.index') }}">
+                            <a
+                                class="nav-link {{ Route::is('customers.*') ? 'active' : '' }}"
+                                href="{{ route('customers.index') }}"
+                            >
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Clientes
                             </a>
                             
-                            <a class="nav-link" href="{{ route('lendings.index') }}">
+                            <a 
+                                class="nav-link {{ Route::is('lendings.*') ? 'active' : '' }}"
+                                href="{{ route('lendings.index') }}"
+                            >
                                 <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
                                 Empréstimos
                             </a>
 
-                            <a class="nav-link" href="{{ route('users.index') }}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Usuários
-                            </a>
+                            @if(auth()->user()->role == 'admin')
+                                <a
+                                    class="nav-link {{ Route::is('users.*') ? 'active' : '' }}"
+                                    href="{{ route('users.index') }}"
+                                >
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                    Usuários
+                                </a>
+                            @endif
                             
                         </div>
                     </div>
@@ -85,9 +99,12 @@
 
                             <div class="col-12">
                                 @if($errors->any())
-                                    <div class="row mt-3 mb-3">
+                                    <div class="row mb-2">
                                         <div class="col-12">
-                                            <div class="alert alert-danger" role="alert">
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 @foreach ($errors->all() as $error)
                                                     <div>{{ $error }}</div>
                                                 @endforeach
@@ -97,9 +114,12 @@
                                 @endif
 
                                 @if(session()->has('msg_success'))
-                                    <div class="row mt-3 mb-3">
+                                    <div class="row mb-2">
                                         <div class="col-12">
-                                            <div class="alert alert-success" role="alert">
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 {{ session()->get('msg_success') }}
                                             </div>
                                         </div>
@@ -107,9 +127,12 @@
                                 @endif
 
                                 @if(session()->has('msg_error'))
-                                    <div class="row mt-3 mb-3">
+                                    <div class="row mb-2">
                                         <div class="col-12">
-                                            <div class="alert alert-danger" role="alert">
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 {{ session()->get('msg_error') }}
                                             </div>
                                         </div>

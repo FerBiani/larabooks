@@ -1,36 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livros | Editar</title>
-</head>
-<body>
-    <form action="{{ route('books.update', $book->id) }}" method="POST">
+@extends('layouts.app')
+@section('title', 'Editar Livro')
 
-        @csrf
-        @method('PUT')
+@section('breadcrumb')
+<li class="breadcrumb-item">
+    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+</li>
+<li class="breadcrumb-item active">
+    <a href="{{ route('books.index') }}">Livros</a>
+</li>
+<li class="breadcrumb-item active">Editar Livro</li>
+@endsection
 
-        <label>Nome</label>
-        <input name="name" type="text" value="{{ $book->name }}"></input>
+@section('content')
 
-        <br>
+    <div class="col-12">
 
-        <label>Autor</label>
-        <input name="author" type="text" value="{{ $book->author }}"></input>
+        <form action="{{ route('books.update', $book->id) }}" method="POST">
 
-        <br>
+            @csrf
+            @method('PUT')
 
-        <label>Categoria</label>
-        <select name="category">
-            <option {{ $book->category == 'Infantil' ? 'selected' : '' }}>Infantil</option>
-            <option {{ $book->category == 'Ficção' ? 'selected' : '' }}>Ficção</option>
-            <option {{ $book->category == 'Aventura' ? 'selected' : '' }}>Aventura</option>
-        </select>
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    Editar Livro
+                </div>
+                <div class="card-body">
 
-        <br>
+                    <div class="row">
 
-        <button type="submit">Enviar</button>
-    </form>
-</body>
-</html>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <input name="name" type="text" class="form-control" value="{{ $book->name }}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>Autor</label>
+                                <input name="author" type="text" class="form-control" value="{{ $book->author }}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>Categoria</label>
+                                <select name="category" class="form-control">
+                                    <option {{ $book->category == 'Infantil' ? 'selected' : '' }}>Infantil</option>
+                                    <option {{ $book->category == 'Ficção' ? 'selected' : '' }}>Ficção</option>
+                                    <option {{ $book->category == 'Aventura' ? 'selected' : '' }}>Aventura</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                </div>
+            </div>
+        </form>
+    
+    </div>
+
+@endsection
